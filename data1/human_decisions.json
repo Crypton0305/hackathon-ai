@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-07-12T00:04:27",
+    "claim_number": "CLM-55123",
+    "policy_number": "POL-98234",
+    "damage_label": "No Damage Detected",
+    "damage_confidence": 0.8873841762542725,
+    "risk_label": "Low",
+    "risk_confidence": 0.9999743700027466,
+    "ai_recommendation": "The claimant, Ayan Ahmed, has filed a claim (CLM-55123) under policy number POL-98234 for a rear-end collision that occurred on May 6, 2026, resulting in minor bumper damage. The damage detection result shows no damage detected with a confidence level of 0.887. The risk prediction result indicates a low risk with a high confidence level of 0.999. The next action should be to reject the claim due to the damage detection result showing no damage detected.",
+    "human_decision": "Modify",
+    "human_notes": ""
+  }
+]
