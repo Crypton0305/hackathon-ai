@@ -336,13 +336,19 @@ def page_human_review():
 def page_report():
     st.title("Step 6: Download Report")
 
+    # claim_fields (from PDF upload) is optional -- damage_result, risk_result,
+    # and human_decision are the only steps that are actually required.
     required = [
-        st.session_state.claim_fields, st.session_state.damage_result,
-        st.session_state.risk_result, st.session_state.human_decision,
+        st.session_state.damage_result,
+        st.session_state.risk_result,
+        st.session_state.human_decision,
     ]
     if any(item is None for item in required):
-        st.warning("Please complete all previous steps (including submitting a human decision) first.")
+        st.warning("Please complete Damage Analysis, Risk Analysis, and Human Review first.")
         return
+
+    if st.session_state.claim_fields is None:
+        st.info("No claim PDF was uploaded — the report will be generated without extracted claim fields.")
 
     explanation_text = (
         f"Damage detection confidence: {st.session_state.damage_result['confidence']:.1%}\n"
@@ -353,7 +359,7 @@ def page_report():
         explanation_text += f"Most influential factor in risk score: {top_feature}"
 
     pdf_bytes = build_claim_report(
-        st.session_state.claim_fields,
+        st.session_state.claim_fields or {},
         st.session_state.damage_result,
         st.session_state.risk_result,
         explanation_text,
