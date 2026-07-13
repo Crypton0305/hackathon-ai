@@ -45,14 +45,6 @@ python train_models.py     # trains and saves the CNN + ANN models
 streamlit run app.py
 ```
 
-## Deploying to Streamlit Community Cloud
-
-1. Push this whole folder to a GitHub repo.
-2. **Important**: commit the trained model files in `models/` to the repo
-   (don't rely on retraining on every reboot — this was a recurring issue
-   in past projects). If GitHub blocks large files, use Git LFS.
-3. Connect the repo on share.streamlit.io. `runtime.txt` pins Python 3.11
-   so TensorFlow installs cleanly.
 
 ## Notes on the data
 
